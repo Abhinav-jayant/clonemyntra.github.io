@@ -1,4 +1,6 @@
-/* --- RESET & FONTS --- */
+/* =========================================
+   1. GLOBAL & RESET (Desktop Default)
+   ========================================= */
 * {
     margin: 0;
     padding: 0;
@@ -12,7 +14,9 @@ body {
     overflow-x: hidden;
 }
 
-/* --- HEADER / NAVBAR --- */
+/* =========================================
+   2. HEADER / NAVBAR (Desktop View)
+   ========================================= */
 header {
     display: flex;
     align-items: center;
@@ -32,6 +36,7 @@ header {
     cursor: pointer;
 }
 
+/* Navigation Links (Visible on PC) */
 .nav-links {
     display: flex;
     height: 100%;
@@ -61,7 +66,7 @@ header {
     margin-left: 2px;
 }
 
-/* --- SEARCH BAR --- */
+/* Search Bar (Visible on PC) */
 .search-bar {
     display: flex;
     align-items: center;
@@ -93,7 +98,7 @@ header {
     outline: none;
 }
 
-/* --- USER ACTIONS --- */
+/* User Actions */
 .user-actions {
     display: flex;
     gap: 20px;
@@ -116,7 +121,17 @@ header {
     color: #282c3f;
 }
 
-/* --- MAIN CONTENT --- */
+/* Hamburger Menu (Hidden on PC by default) */
+.mobile-menu-icon {
+    display: none;
+    font-size: 22px;
+    color: #282c3f;
+    cursor: pointer;
+}
+
+/* =========================================
+   3. MAIN CONTENT (Desktop View)
+   ========================================= */
 .coupon-strip {
     background-color: #fceeea;
     text-align: center;
@@ -142,7 +157,7 @@ header {
     text-transform: uppercase;
 }
 
-/* --- CATEGORY GRID --- */
+/* 5-Column Grid for Desktop */
 .category-grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
@@ -190,7 +205,7 @@ header {
     font-weight: 600;
 }
 
-/* --- CIRCLE GRID --- */
+/* Circle Grid */
 .circle-grid {
     display: flex;
     justify-content: space-evenly;
@@ -216,7 +231,7 @@ header {
     color: #282c3f;
 }
 
-/* --- FOOTER --- */
+/* Footer */
 footer {
     background-color: #fbfbfb;
     padding: 30px 4%;
@@ -248,4 +263,81 @@ footer {
     height: 40px;
     margin-right: 10px;
     cursor: pointer;
+}
+
+/* =========================================
+   4. MOBILE RESPONSIVENESS (Max Width: 768px)
+   (Overrides the Desktop styles above)
+   ========================================= */
+
+@media screen and (max-width: 768px) {
+
+    /* Shrink Header */
+    header {
+        height: 60px;
+        padding: 0 15px;
+    }
+
+    /* Hide Desktop-only elements */
+    .nav-links, 
+    .search-bar {
+        display: none; 
+    }
+
+    /* Show Mobile Menu Icon (You need to add this to your HTML) */
+    .mobile-menu-icon {
+        display: block; 
+    }
+
+    /* Adjust Icons */
+    .user-actions {
+        gap: 15px;
+    }
+
+    .action-item span {
+        display: none; /* Hide text, show only icons */
+    }
+
+    /* Adjust Headings */
+    .section-heading {
+        margin: 30px 0 20px 15px;
+    }
+
+    .section-heading h4 {
+        font-size: 20px;
+    }
+
+    /* 2-Column Grid for Mobile */
+    .category-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+        padding: 0 8px;
+    }
+
+    /* Text adjustments for smaller screens */
+    .overlay h3 { font-size: 14px; }
+    .overlay span { font-size: 12px; }
+
+    /* Horizontal Scroll for Circles */
+    .circle-grid {
+        justify-content: flex-start;
+        overflow-x: auto;
+        gap: 15px;
+        padding: 0 15px 30px;
+    }
+
+    .circle-item {
+        min-width: 90px;
+    }
+
+    .circle-item img {
+        width: 80px;
+        height: 80px;
+    }
+
+    /* Stack Footer Vertically */
+    footer {
+        flex-direction: column;
+        gap: 30px;
+    }
 }
